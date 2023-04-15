@@ -14,6 +14,15 @@
 		1DBA3E5129E825D6003F012A /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E4F29E825D6003F012A /* InstagramClone.xcdatamodeld */; };
 		1DBA3E5329E825DB003F012A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DBA3E5229E825DB003F012A /* Assets.xcassets */; };
 		1DBA3E5629E825DB003F012A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBA3E5429E825DB003F012A /* LaunchScreen.storyboard */; };
+		1DBA3E6529E83141003F012A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E6429E83141003F012A /* MainTabController.swift */; };
+		1DBA3E6729E832CE003F012A /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E6629E832CE003F012A /* FeedController.swift */; };
+		1DBA3E6929E832E2003F012A /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E6829E832E2003F012A /* SearchController.swift */; };
+		1DBA3E6B29E832FC003F012A /* ImageSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E6A29E832FC003F012A /* ImageSelectorController.swift */; };
+		1DBA3E6D29E83311003F012A /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E6C29E83311003F012A /* NotificationsController.swift */; };
+		1DBA3E6F29E83325003F012A /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E6E29E83325003F012A /* ProfileController.swift */; };
+		1DBA3E7129E8EC39003F012A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E7029E8EC39003F012A /* FeedCell.swift */; };
+		1DBA3E7329E8EE11003F012A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E7229E8EE11003F012A /* Extensions.swift */; };
+		1DBA3E7629E8F91C003F012A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 1DBA3E7529E8F91C003F012A /* Algorithms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,14 @@
 		1DBA3E5229E825DB003F012A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DBA3E5529E825DB003F012A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DBA3E5729E825DB003F012A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DBA3E6429E83141003F012A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		1DBA3E6629E832CE003F012A /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		1DBA3E6829E832E2003F012A /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		1DBA3E6A29E832FC003F012A /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorController.swift; sourceTree = "<group>"; };
+		1DBA3E6C29E83311003F012A /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		1DBA3E6E29E83325003F012A /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		1DBA3E7029E8EC39003F012A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		1DBA3E7229E8EE11003F012A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBA3E7629E8F91C003F012A /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +76,12 @@
 		1DBA3E4529E825D6003F012A /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				1DBA3E6329E82F39003F012A /* Model */,
+				1DBA3E6229E82F36003F012A /* View */,
+				1DBA3E6129E82F33003F012A /* ViewModel */,
+				1DBA3E6029E82F30003F012A /* Controllers */,
+				1DBA3E5F29E82F2A003F012A /* API */,
+				1DBA3E5D29E82EF9003F012A /* Utils */,
 				1DBA3E4629E825D6003F012A /* AppDelegate.swift */,
 				1DBA3E4829E825D6003F012A /* SceneDelegate.swift */,
 				1DBA3E4A29E825D6003F012A /* ViewController.swift */,
@@ -68,6 +92,56 @@
 				1DBA3E4F29E825D6003F012A /* InstagramClone.xcdatamodeld */,
 			);
 			path = InstagramClone;
+			sourceTree = "<group>";
+		};
+		1DBA3E5D29E82EF9003F012A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1DBA3E7229E8EE11003F012A /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1DBA3E5F29E82F2A003F012A /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		1DBA3E6029E82F30003F012A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DBA3E6429E83141003F012A /* MainTabController.swift */,
+				1DBA3E6629E832CE003F012A /* FeedController.swift */,
+				1DBA3E6829E832E2003F012A /* SearchController.swift */,
+				1DBA3E6A29E832FC003F012A /* ImageSelectorController.swift */,
+				1DBA3E6C29E83311003F012A /* NotificationsController.swift */,
+				1DBA3E6E29E83325003F012A /* ProfileController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1DBA3E6129E82F33003F012A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1DBA3E6229E82F36003F012A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1DBA3E7029E8EC39003F012A /* FeedCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1DBA3E6329E82F39003F012A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +160,9 @@
 			dependencies = (
 			);
 			name = InstagramClone;
+			packageProductDependencies = (
+				1DBA3E7529E8F91C003F012A /* Algorithms */,
+			);
 			productName = InstagramClone;
 			productReference = 1DBA3E4329E825D6003F012A /* InstagramClone.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +191,9 @@
 				Base,
 			);
 			mainGroup = 1DBA3E3A29E825D6003F012A;
+			packageReferences = (
+				1DBA3E7429E8F91C003F012A /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 1DBA3E4429E825D6003F012A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,8 +221,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBA3E6B29E832FC003F012A /* ImageSelectorController.swift in Sources */,
 				1DBA3E4B29E825D6003F012A /* ViewController.swift in Sources */,
+				1DBA3E6729E832CE003F012A /* FeedController.swift in Sources */,
 				1DBA3E4729E825D6003F012A /* AppDelegate.swift in Sources */,
+				1DBA3E7129E8EC39003F012A /* FeedCell.swift in Sources */,
+				1DBA3E6929E832E2003F012A /* SearchController.swift in Sources */,
+				1DBA3E6F29E83325003F012A /* ProfileController.swift in Sources */,
+				1DBA3E7329E8EE11003F012A /* Extensions.swift in Sources */,
+				1DBA3E6529E83141003F012A /* MainTabController.swift in Sources */,
+				1DBA3E6D29E83311003F012A /* NotificationsController.swift in Sources */,
 				1DBA3E5129E825D6003F012A /* InstagramClone.xcdatamodeld in Sources */,
 				1DBA3E4929E825D6003F012A /* SceneDelegate.swift in Sources */,
 			);
@@ -360,6 +448,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1DBA3E7429E8F91C003F012A /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1DBA3E7529E8F91C003F012A /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DBA3E7429E8F91C003F012A /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1DBA3E4F29E825D6003F012A /* InstagramClone.xcdatamodeld */ = {

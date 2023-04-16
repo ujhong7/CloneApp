@@ -21,7 +21,14 @@ class FeedCell: UICollectionViewCell {
     }()
     
     
-    // private let ⭐️ 7:50
+    private lazy var usernameButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.black, for: .normal)
+        button.setTitle("venom", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.addTarget(self, action: #selector(didTapUsername), for: .touchUpInside)
+        return button
+    }()
     
     
     // MARK: - LifeCycle
@@ -35,10 +42,20 @@ class FeedCell: UICollectionViewCell {
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 12)
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40 / 2
+        
+        addSubview(usernameButton)
+        usernameButton.centerY(inView: profileImageView,
+                               leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func didTapUsername() {
+        print("DEBUG: did tap username")
+    }
+    
+    
     
 }

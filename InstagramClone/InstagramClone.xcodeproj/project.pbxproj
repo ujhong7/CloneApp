@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3998DE29EC452E007BC059 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3998DD29EC452E007BC059 /* LoginController.swift */; };
+		1D3998E029EC454C007BC059 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3998DF29EC454C007BC059 /* RegistrationController.swift */; };
+		1D3998E229ECE53E007BC059 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3998E129ECE53E007BC059 /* CustomTextField.swift */; };
 		1DBA3E4729E825D6003F012A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E4629E825D6003F012A /* AppDelegate.swift */; };
 		1DBA3E4929E825D6003F012A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E4829E825D6003F012A /* SceneDelegate.swift */; };
 		1DBA3E4B29E825D6003F012A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA3E4A29E825D6003F012A /* ViewController.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D3998DD29EC452E007BC059 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		1D3998DF29EC454C007BC059 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		1D3998E129ECE53E007BC059 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1DBA3E4329E825D6003F012A /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DBA3E4629E825D6003F012A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DBA3E4829E825D6003F012A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D3998DC29EC446F007BC059 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1D3998DD29EC452E007BC059 /* LoginController.swift */,
+				1D3998DF29EC454C007BC059 /* RegistrationController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		1DBA3E3A29E825D6003F012A = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +127,7 @@
 		1DBA3E6029E82F30003F012A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D3998DC29EC446F007BC059 /* Authentication */,
 				1DBA3E6429E83141003F012A /* MainTabController.swift */,
 				1DBA3E6629E832CE003F012A /* FeedController.swift */,
 				1DBA3E6829E832E2003F012A /* SearchController.swift */,
@@ -133,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1DBA3E7029E8EC39003F012A /* FeedCell.swift */,
+				1D3998E129ECE53E007BC059 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,9 +238,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3998E029EC454C007BC059 /* RegistrationController.swift in Sources */,
 				1DBA3E6B29E832FC003F012A /* ImageSelectorController.swift in Sources */,
 				1DBA3E4B29E825D6003F012A /* ViewController.swift in Sources */,
 				1DBA3E6729E832CE003F012A /* FeedController.swift in Sources */,
+				1D3998DE29EC452E007BC059 /* LoginController.swift in Sources */,
 				1DBA3E4729E825D6003F012A /* AppDelegate.swift in Sources */,
 				1DBA3E7129E8EC39003F012A /* FeedCell.swift in Sources */,
 				1DBA3E6929E832E2003F012A /* SearchController.swift in Sources */,
@@ -233,6 +252,7 @@
 				1DBA3E6D29E83311003F012A /* NotificationsController.swift in Sources */,
 				1DBA3E5129E825D6003F012A /* InstagramClone.xcdatamodeld in Sources */,
 				1DBA3E4929E825D6003F012A /* SceneDelegate.swift in Sources */,
+				1D3998E229ECE53E007BC059 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

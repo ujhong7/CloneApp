@@ -13,6 +13,7 @@ import UIKit
 extension UIViewController {
 //    static let hud = JGProgressHUD(style: .dark)
     
+    // backgroundColor 그라데이션
     func configureGradientLayer() {
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
@@ -39,6 +40,7 @@ extension UIViewController {
 }
 
 extension UIButton {
+    // setAttributedTitle ⭐️ 
     func attributedTitle(firstPart: String, secondPart: String) {
         let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.systemFont(ofSize: 16)]
         let attributedTitle = NSMutableAttributedString(string: "\(firstPart) ", attributes: atts)

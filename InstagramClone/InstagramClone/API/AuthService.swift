@@ -5,7 +5,8 @@
 //  Created by yujaehong on 2023/04/19.
 //
 
-import Foundation
+
+import UIKit
 import Firebase
 
 
@@ -17,8 +18,11 @@ struct AuthCredentials {
     let profileImage: UIImage
 }
 
-
 struct AuthService {
+    static func logUserIn(withEmail email: String, password: String, completion: @escaping(AuthDataResult?, Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
     static func registerUser(withCredential credentials: AuthCredentials, completion: @escaping(Error?) -> Void) {
         
         ImageUploader.uploadImage(image: credentials.profileImage) { imageUrl in
@@ -36,7 +40,7 @@ struct AuthService {
                                            "uid": uid,
                                            "username": credentials.username]
                 
-                Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
+                COLLECTION_USERS.document(uid).setData(data, completion: completion)
             }
         }
         

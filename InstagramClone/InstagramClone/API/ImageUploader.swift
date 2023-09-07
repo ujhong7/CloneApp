@@ -17,6 +17,7 @@ struct ImageUploader {
         ref.putData(imageData, metadata: nil) { metadata, error in
             if let error = error {
                 print("DEBUG: Failed to upload image \(error.localizedDescription)")
+                return
             }
             ref.downloadURL { url, error in
                 guard let imageUrl = url?.absoluteString else { return }

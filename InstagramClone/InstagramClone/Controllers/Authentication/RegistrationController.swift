@@ -40,7 +40,7 @@ class RegistrationController: UIViewController {
     
     private let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
         button.layer.cornerRadius = 5
@@ -119,6 +119,7 @@ class RegistrationController: UIViewController {
                 return
             }
             
+            self.dismiss(animated: true, completion: nil)
             print("DEBUG: Successfully registered user with firestore...")
             
         }

@@ -17,10 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         // 메인화면 (루트뷰) 바꾸기
-        // window?.rootViewController = MainTabController() //
-        window?.rootViewController = UINavigationController(rootViewController: LoginController())
+        window?.rootViewController = MainTabController() //
+//         window?.rootViewController = UINavigationController(rootViewController: LoginController())
         window?.makeKeyAndVisible()
-        
+         
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

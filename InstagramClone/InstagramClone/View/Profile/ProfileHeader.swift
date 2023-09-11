@@ -6,22 +6,30 @@
 //
 
 import UIKit
+import Firebase
+import SDWebImage
 
+// UICollectionReusableView 컬렉션 뷰의 헤더 뷰 및 푸터 뷰와 같이 섹션의 맨 위나 맨 아래에 표시되는 뷰를 정의하는 데 사용
 class ProfileHeader: UICollectionReusableView {
     
     // MARK: - Porperties
     
+    var viewModel: ProfileHeaderViewModel? {
+        didSet { configure() }
+    }
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "venom-7")
+        // iv.image = #imageLiteral(resourceName: "venom-7")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        iv.backgroundColor = .lightGray
         return iv
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Eddie Brock"
+        // label.text = "Eddie Brock"
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
@@ -140,6 +148,14 @@ class ProfileHeader: UICollectionReusableView {
     
     // MARK: - Helpers
     
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        
+        nameLabel.text = viewModel.fullname
+        profileImageView.sd_setImage(with: viewModel.prrfileImageUrl)
+    }
+    
+    // 정수 값과 레이블 문자열을 받아서 스타일링된 NSAttributedString을 생성하는 메서드
     func attributedStatText(value: Int, label: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))

@@ -19,13 +19,17 @@ struct AuthCredentials {
 }
 
 struct AuthService {
+    // 로그인
     static func logUserIn(withEmail email: String, password: String, completion: @escaping(AuthDataResult?, Error?) -> Void) {
+        // Auth.auth().signIn 사용자 인증
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
     
+    // 회원가입
     static func registerUser(withCredential credentials: AuthCredentials, completion: @escaping(Error?) -> Void) {
         
         ImageUploader.uploadImage(image: credentials.profileImage) { imageUrl in
+            // Auth.auth().createUser 사용자 등록
             Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in
                 
                 if let error = error {

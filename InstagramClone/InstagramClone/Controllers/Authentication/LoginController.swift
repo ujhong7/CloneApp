@@ -7,10 +7,17 @@
 
 import UIKit
 
+// 로그인, 회원가입 완료 시점을 알림(호출)
+protocol AuthenticationDelegate: class {
+    func authenticationDidComplete()
+}
+
 class LoginController: UIViewController {
     
     // MARK: - Properties
     private var viewModel = LoginViewModel()
+    
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
@@ -86,12 +93,13 @@ class LoginController: UIViewController {
                 print("DEBUG: Failed to log user in \(error.localizedDescription)")
                 return
             }
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationDidComplete() // ⭐️ 완료 상태를 델리게이트에 알림! ⭐️
         }
     }
     
     @objc func handleShowSignUp() {
         let controller = RegistrationController()
+        controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
     

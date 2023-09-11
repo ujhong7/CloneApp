@@ -7,6 +7,7 @@
 
 import FirebaseStorage
 
+// 이미지를 Firebase Storage에 업로드하고 업로드된 이미지의 다운로드 URL을 얻을 수 있습니다.
 struct ImageUploader {
     static func uploadImage(image: UIImage, completion: @escaping (String) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
@@ -24,8 +25,6 @@ struct ImageUploader {
                 completion(imageUrl)
             }
         }
-        
-        
         
     }
 }

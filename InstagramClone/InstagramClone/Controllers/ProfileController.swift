@@ -14,25 +14,35 @@ class ProfileController: UICollectionViewController {
     
     // MARK: - Properties
     
+    private var user: User
+    
     // MARK: - LifeCycle
+    
+    init(user: User) {
+        self.user = user
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        fetchUser()
         view.backgroundColor = .systemPurple
     }
     
     // MARK: - API
     
-    func fetchUser() {
-        UserService.fetchUser()
-    }
+  
     
     // MARK: - Helpers
     
     func configureCollectionView() {
+        navigationItem.title = user.username
         collectionView.backgroundColor = .white
+        // 프로필 셀(ProfileCell)과 헤더(ProfileHeader) 뷰를 등록
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
@@ -50,10 +60,14 @@ extension ProfileController {
         return cell
     }
     
+    // // viewForSupplementaryElementOfKind 컬렉션 뷰의 헤더나 푸터와 같은 보조 요소를 반환하는 데 사용
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-         
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
-            return header
+            
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
+        
+        header.viewModel = ProfileHeaderViewModel(user: user)
+        
+        return header
     }
 }
 

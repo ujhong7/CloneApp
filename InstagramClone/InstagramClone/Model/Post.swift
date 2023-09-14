@@ -23,5 +23,5 @@ struct Post {
         self.timestamp = dictinary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
         self.ownerUid = dictinary["ownerUid"] as? String ?? ""
     }
-    
+    // ㅇㅇ
 }

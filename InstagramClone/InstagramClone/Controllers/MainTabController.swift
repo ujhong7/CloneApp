@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import YPImagePicker
 
 class MainTabController: UITabBarController {
     
@@ -46,7 +47,9 @@ class MainTabController: UITabBarController {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let controller = LoginController()
-                controller.delegate = self
+                
+                // LoginController에서 로그인 또는 회원가입 완료 시점에 이벤트를 처리할 대상이 MainTabController라는 것을 알리게 됩니다.
+                controller.delegate = self // ⭐️  로그인 화면에서 발생한 이벤트를 로그인 컨트롤러를 호출한 MainTabController에서 적절히 처리할 수 있도록 하는 역할
                 let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
@@ -59,6 +62,8 @@ class MainTabController: UITabBarController {
     
     func configureViewControllers(withUser user: User) {
         view.backgroundColor = .white
+        
+        self.delegate = self
         
         let layout = UICollectionViewFlowLayout()
         
@@ -89,16 +94,70 @@ class MainTabController: UITabBarController {
         return nav
     }
     
-    
+    func didFinishPickingMedia(_ picker: YPImagePicker) {
+        picker.didFinishPicking { items, _ in
+            picker.dismiss(animated: false) {
+                guard let selectedImage = items.singlePhoto?.image else { return }
+                
+                let controller = UploadPostController()
+                controller.selectedImage = selectedImage
+                controller.delegate = self // ⭐️ UploadPostControllerDelegate
+                
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: false, completion: nil)
+            }
+        }
+    }
     
 }
 
 // MARK: - AuthenticationDelegate
  
 extension MainTabController: AuthenticationDelegate {
+    // 프로토콜 메서드 구현
     func authenticationDidComplete() {
         // 로그인 또는 회원가입한 사용자의 정보를 가져오기 위해 fetchUser 메서드를 호출
         fetchUser()
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+// MARK: - UITabBarControllerDelegate
+
+extension MainTabController: UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let index = viewControllers?.firstIndex(of: viewController)
+        
+        if index == 2 {
+            var config = YPImagePickerConfiguration()
+            config.library.mediaType = .photo
+            config.shouldSaveNewPicturesToAlbum = false
+            config.startOnScreen = .library
+            config.screens = [.library]
+            config.hidesStatusBar = false
+            config.hidesBottomBar = false
+            config.library.maxNumberOfItems = 1
+            
+            let picker = YPImagePicker(configuration: config)
+            picker.modalPresentationStyle = .fullScreen
+            present(picker, animated: true, completion: nil)
+            
+            didFinishPickingMedia(picker)
+        }
+        
+        return true
+        
+    }
+}
+
+// MARK: - UploadPostControllerDelegate
+
+// ⭐️ UploadPostController -> UploadPostControllerDelegate 프로토콜
+extension MainTabController: UploadPostControllerDelegate {
+    func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
+        selectedIndex = 0
+        controller.dismiss(animated: true, completion: nil)
     }
 }

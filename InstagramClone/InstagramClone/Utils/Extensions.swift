@@ -6,12 +6,10 @@
 //
 
 import UIKit
-
-import UIKit
-//import JGProgressHUD
+import JGProgressHUD
 
 extension UIViewController {
-//    static let hud = JGProgressHUD(style: .dark)
+    static let hud = JGProgressHUD(style: .dark)
     
     // backgroundColor 그라데이션
     func configureGradientLayer() {
@@ -22,15 +20,17 @@ extension UIViewController {
         gradient.frame = view.frame
     }
     
-//    func showLoader(_ show: Bool) {
-//        view.endEditing(true)
-//        
-//        if show {
-//            UIViewController.hud.show(in: view)
-//        } else {
-//            UIViewController.hud.dismiss()
-//        }
-//    }
+    // 화면 상단에 로딩 스피너를 표시하거나 숨기는 역할을 합니다.
+    // 이 메서드를 사용하여 네트워크 요청이나 다른 작업을 수행할 때 사용자에게 진행 중임을 표시할 수 있습니다
+    func showLoader(_ show: Bool) {
+        view.endEditing(true)
+        
+        if show {
+            UIViewController.hud.show(in: view)
+        } else {
+            UIViewController.hud.dismiss()
+        }
+    }
     
     func showMessage(withTitle title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

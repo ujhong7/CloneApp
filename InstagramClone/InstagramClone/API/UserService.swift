@@ -79,12 +79,13 @@ struct UserService {
             COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { (snapshot, _) in
                 let following = snapshot?.documents.count ?? 0
                 
-                completion(UserStats(followers: followers, following: following))
-                
+                COLLECTION_POST.whereField("ownerUid", isEqualTo: uid).getDocuments { (snapshot, _) in
+                    let posts = snapshot?.documents.count ?? 0
+                    completion(UserStats(followers: followers, following: following, posts: posts))
+                }
             }
         }
     }
-    
 }
 
 // Firebase Firestore에서 현재 로그인한 사용자의 정보를 가져와서 해당 정보를 User 객체로 변환하여 반환합니다.

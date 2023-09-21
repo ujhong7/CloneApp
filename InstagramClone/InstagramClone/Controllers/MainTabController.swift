@@ -37,7 +37,8 @@ class MainTabController: UITabBarController {
     // 현재 사용자의 정보를 가져오는 역할을 수행하여,
     // 앱의 초기화 단계나 사용자의 로그인 상태 변경 시에 사용됩니다.
     func fetchUser() {
-        UserService.fetchUser { user in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.fetchUser(withUid: uid) { user in
             self.user = user
         }
     }

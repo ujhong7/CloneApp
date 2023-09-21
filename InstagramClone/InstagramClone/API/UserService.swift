@@ -11,11 +11,11 @@ typealias FirestoreCompletion = (Error?) -> Void
 
 struct UserService {
     // 현재 로그인한 사용자의 정보를 Firebase Firestore에서 가져오는 역할
-    static func fetchUser(completion: @escaping(User) -> Void) {
+    static func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
         
         // 현재 로그인한 사용자의 UID(사용자 고유 식별자)를 가져옵니다.
         // Firebase Authentication을 사용하여 현재 사용자가 로그인했는지 확인합니다. 사용자가 로그인하지 않았다면 함수를 종료
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
         
         // "users" 컬렉션에서 현재 사용자의 UID를 사용하여 해당 사용자 문서를 가져옴
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in

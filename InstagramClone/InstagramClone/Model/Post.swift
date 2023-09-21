@@ -8,12 +8,14 @@
 import Firebase
 
 struct Post {
-    let caption: String
+    var caption: String
     var likes: Int
     let imageUrl: String
     let ownerUid: String
     let timestamp: Timestamp
     let postId: String
+    
+    var didLike = false
     
     let ownerImageUrl: String
     let ownerUsername: String

@@ -131,13 +131,16 @@ extension CommentController: CommentInputAccesoryViewDelegate {
     func inputView(_ inputView: CommentInputAccesoryView, wantsToUploadComment comment: String) {
         
         guard let tab = self.tabBarController as? MainTabController else { return }
-        guard let user = tab.user else { return }
+        guard let currnetUser = tab.user else { return }
         
         self.showLoader(true)
         
-        CommentService.uploadComment(comment: comment, postID: post.postId, user: user) { error in
+        CommentService.uploadComment(comment: comment, postID: post.postId, user: currnetUser) { error in
             self.showLoader(false)
             inputView.clearCommentTextView()
+            
+            NotificationService.uploadNotification(toUid: self.post.ownerUid, fromUser: currnetUser, type: .comment, post: self.post)
+            
         }
     }
 }
